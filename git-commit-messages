@@ -1,0 +1,34 @@
+How To Write A Good Commit Message.
+
+When starting a new project, three things collaborators should agree on are:
+	
+	Style
+	- Markup Syntax
+	- Wrap Margins
+	- Grammar
+	- Capitalization
+	- Punctuation
+
+	Content
+	- What information should the commit message body contain.
+	- What should it not contain.
+
+	Metadata
+	- Issue tracking ID's?
+	- Pull request numbers?
+	- How will these things be referenced.
+
+The seven rules of a great commit message:
+
+	- Seperate the subject from the body with a blank line.
+	- Limit the subject length to 50 characters.
+	- Capitalize the subject line.
+	- Do not end the subject with a period.
+	- Use the imperative mood in the subject (The verb makes a command or request).
+	- Wrap the body at 72 characters.
+	- Use the body to explain WHAT and WHY instead of HOW.
+
+Good things to remember:
+
+	- Not every commit requires you to have a body. If changes are simple then keep things to one line.
+
