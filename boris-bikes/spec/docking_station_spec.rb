@@ -14,7 +14,7 @@ describe DockingStation do
     end
 
     it 'raises an error if there are no bikes' do
-      expect { station.release_bike }.to raise_error "No bikes in Docking Station."
+      expect { station.release_bike }.to raise_error "Capacity error"
     end
 
   end
