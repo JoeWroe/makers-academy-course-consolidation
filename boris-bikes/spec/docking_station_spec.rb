@@ -26,5 +26,10 @@ describe DockingStation do
       expect(station.bike).to eq(bike)
     end
 
+    it 'raises an error if capacity reached' do
+      station.dock(bike)
+      expect { station.dock(bike) }.to raise_error "Capacity error"
+    end
+
   end
 end
