@@ -7,19 +7,23 @@ class DockingStation
   bike = @bike
 
   def release_bike
-    capacity_error if empty?
+    capacity_empty_error if empty?
     bike
   end
 
   def dock(bike)
-    capacity_error if full?
+    capacity_full_error if full?
     @bike = bike
   end
 
-  # private
+  private
 
-  def capacity_error
-    raise "Capacity error"
+  def capacity_empty_error
+    raise "Docking Station is empty."
+  end
+
+  def capacity_full_error
+    raise "Docking Staion is full."
   end
 
   def empty?
