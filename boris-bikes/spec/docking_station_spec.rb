@@ -25,7 +25,7 @@ describe DockingStation do
     end
 
     it 'can dock a bike' do
-      expect(station.bike).to eq(bike)
+      expect(station.bikes).to eq(bike)
     end
 
     it 'raises an error if capacity reached' do

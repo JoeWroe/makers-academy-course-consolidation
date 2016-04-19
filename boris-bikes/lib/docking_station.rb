@@ -2,18 +2,18 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_reader :bike
+  attr_reader :bikes
 
-  bike = @bike
+  bikes = @bikes
 
   def release_bike
     capacity_empty_error if empty?
-    bike
+    bikes
   end
 
   def dock(bike)
     capacity_full_error if full?
-    @bike = bike
+    @bikes = bike
   end
 
   private
@@ -27,11 +27,11 @@ class DockingStation
   end
 
   def empty?
-    bike == nil
+    bikes == nil
   end
 
   def full?
-    bike != nil
+    bikes != nil
   end
 
 end
