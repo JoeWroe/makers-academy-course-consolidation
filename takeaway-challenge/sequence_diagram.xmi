@@ -1,0 +1,4 @@
+c:Customer
+m:Menu
+
+c:the_menu=m.avaliable_dishes()
