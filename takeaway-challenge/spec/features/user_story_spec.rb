@@ -1,9 +1,14 @@
 describe 'User Stories' do
 
+  let(:customer) { Customer.new(takeaway: takeaway) }
+  let(:takeaway) { Takeaway.new }
+
   describe 'User Story One' do
-    # As a customer
-    # So that I can check if I want to order something
-    # I would like to see a list of dishes with prices
+    it 'As a customer,
+    So that I can check if I want to order something,
+    I would like to see a list of dishes with prices.' do
+      expect(customer.avaliable_dishes).to eq('Starter..........3')
+    end
   end
 
   describe 'User Story Two' do

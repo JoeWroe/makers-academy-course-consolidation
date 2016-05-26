@@ -1,4 +1,7 @@
 c:Customer
+t:Takeaway
 m:Menu
 
-c:the_menu=m.avaliable_dishes()
+c:formated_menu=t.avaliable_dishes()
+t:dishes_list=m.dishes()
+t:prices_list=m.prices()
