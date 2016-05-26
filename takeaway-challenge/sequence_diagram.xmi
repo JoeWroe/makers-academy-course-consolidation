@@ -1,7 +1,13 @@
 c:Customer
 t:Takeaway
 m:Menu
+mf:MenuFormatter
 
-c:formated_menu=t.avaliable_dishes()
-t:dishes_list=m.dishes()
-t:prices_list=m.prices()
+c:formatted_menu=t.avaliable_dishes()
+t:formatted_menu=m.formatted_dishes_list()
+m:formatted_menu=mf.format_menu()
+
+mf:dishes_list=m.dishes()
+mf:prices_list=m.prices()
+
+mf:formated_menu=mf.arrange_menu_items()
