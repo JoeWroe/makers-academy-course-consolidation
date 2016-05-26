@@ -13,6 +13,10 @@ class Takeaway
     menu.dishes_list
   end
 
+  def prices
+    menu.prices_list
+  end
+
   private
 
   attr_reader :menu
