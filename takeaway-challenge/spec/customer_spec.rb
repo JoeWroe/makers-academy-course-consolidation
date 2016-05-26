@@ -5,6 +5,7 @@ describe Customer do
   subject(:customer) { described_class.new(takeaway: takeaway) }
 
   let(:takeaway) { double(:takeaway, formatted_menu: formatted_menu) }
+
   let(:formatted_menu) { 'Starter..........3' }
 
   describe 'viewing menu' do
