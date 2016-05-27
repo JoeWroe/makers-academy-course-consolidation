@@ -7,8 +7,16 @@ describe Menu do
   let(:dishes)        { double(:dishes, dishes_list: dishes_list) }
   let(:menuFormatter) { double(:menuFormatter, formatted_menu: menu_formatted) }
 
-  let(:dishes_list)    { ['Starter', 'Main', 'Dessert']}
-  let(:menu_formatted) { 'Starter..........3' }
+  let(:dishes_list) { [
+                          {starter: "Starter"},
+                          {main: "Main"},
+                          {dessert: "Dessert"}
+                        ] }
+  let(:menu_formatted) {
+                          'Starter..........3'
+                          'Main..........9'
+                          'Dessert..........5'
+                        }
 
   describe 'dishes' do
 
