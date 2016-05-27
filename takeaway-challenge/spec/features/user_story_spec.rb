@@ -2,7 +2,7 @@ describe 'User Stories' do
 
   let(:customer) { Customer.new(takeaway: takeaway) }
   let(:takeaway) { Takeaway.new(menu: menu) }
-  let(:menu)     { Menu.new }
+  let(:menu)     { Menu.new(menuFormatter: menuFormatter) }
 
   describe 'User Story One' do
     it 'As a customer,
