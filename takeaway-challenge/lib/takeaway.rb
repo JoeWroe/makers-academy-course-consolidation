@@ -5,17 +5,16 @@ class Takeaway
   end
 
   def formatted_menu
-    # To be replaced with string interpolation when dishes and prices have been done.
-    'Starter..........3'
+    menu.formatted_menu
   end
 
-  def dishes
-    menu.dishes_list
-  end
-
-  def prices
-    menu.prices_list
-  end
+  # def dishes
+  #   menu.dishes_list
+  # end
+  #
+  # def prices
+  #   menu.prices_list
+  # end
 
   private
 
