@@ -14,5 +14,4 @@ describe Menu do
       expect(menu.formatted_menu).to eq(menu_formatted)
     end
   end
-
 end
