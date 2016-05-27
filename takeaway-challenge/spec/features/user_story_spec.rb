@@ -2,7 +2,8 @@ describe 'User Stories' do
 
   let(:customer)      { Customer.new(takeaway: takeaway) }
   let(:takeaway)      { Takeaway.new(menu: menu) }
-  let(:menu)          { Menu.new(menuFormatter: menuFormatter) }
+  let(:menu)          { Menu.new(dishes: dishes, menuFormatter: menuFormatter) }
+  let(:dishes)        { Dishes.new }
   let(:menuFormatter) { MenuFormatter.new }
 
   describe 'User Story One' do

@@ -1,7 +1,12 @@
 class Menu
 
-  def initialize(menuFormatter:)
+  def initialize(dishes:, menuFormatter:)
+    @dishes = dishes
     @menuFormatter = menuFormatter
+  end
+
+  def avaliable_dishes
+    dishes.dishes_list
   end
 
   def formatted_menu
@@ -10,6 +15,6 @@ class Menu
 
   private
 
-  attr_reader :menuFormatter
+  attr_reader :dishes, :menuFormatter
 
 end
