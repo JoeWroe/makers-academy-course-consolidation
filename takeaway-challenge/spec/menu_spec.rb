@@ -12,16 +12,16 @@ describe Menu do
   let(:prices)        { double(:prices, prices_list: prices_list) }
   let(:menuFormatter) { double(:menuFormatter, formatted_menu: menu_formatted) }
 
-  let(:dishes_list) { [
-                          {starter: "Starter"},
-                          {main: "Main"},
-                          {dessert: "Dessert"}
-                        ] }
-  let(:prices_list) { [
-                          {'Starter': 3},
-                          {'Main': 9},
-                          {'Dessert': 5}
-                        ] }
+  let(:dishes_list)    { [
+                            {starter: "Starter"},
+                            {main: "Main"},
+                            {dessert: "Dessert"}
+                          ] }
+  let(:prices_list)    { [
+                            {'Starter': 3},
+                            {'Main': 9},
+                            {'Dessert': 5}
+                          ] }
   let(:menu_formatted) {
                           'Starter..........3'
                           'Main..........9'
