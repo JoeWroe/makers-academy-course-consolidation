@@ -1,18 +1,16 @@
 class MenuFormatter
 
-  def initialize
-    @menu = menu
+  def formatted_menu(menu)
+    "#{avaliable_dishes(menu)}.........."
   end
 
-  def avaliable_dishes_list
-    menu.avaliable_dishes
+  # private
+
+  def avaliable_dishes(menu)
+    menu.avaliable_dishes.map { |dish|
+      dish.map do |type, name|
+        "#{type.to_s.capitalize}: #{name}"
+      end
+     }
   end
-
-  def formatted_menu
-  end
-
-  private
-
-  attr_reader :menu
-
 end

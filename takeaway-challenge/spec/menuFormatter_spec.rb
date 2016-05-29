@@ -4,22 +4,20 @@ describe MenuFormatter do
 
   subject(:menuFormatter) { described_class.new }
 
-  # let(:menu) { double(:menu, avaliable_dishes: dishes_list) }
+  # let(:menu) { double(:menu, avaliable_dishes: list_of_dishes) }
   #
-  # let(:dishes_list)    { [
+  # let(:list_of_dishes)    { [
   #                           {starter: "Starter"},
   #                           {main: "Main"},
   #                           {dessert: "Dessert"}
   #                         ] }
+  let(:menu_formatted) {
+                         'Starter..........3
+                          Main..........9
+                          Desert..........5'
+                        }
 
-  describe 'menu contents' do
-
-    it 'can obtain a list of dishes' do
-      expect(menuFormatter.avaliable_dishes_list).to eq(list_of_dishes)
-    end
-  end
-
-  xdescribe 'formatted menu' do
+  describe 'formatted menu' do
 
     it 'can return it' do
       expect(menuFormatter.formatted_menu).to eq(menu_formatted)
