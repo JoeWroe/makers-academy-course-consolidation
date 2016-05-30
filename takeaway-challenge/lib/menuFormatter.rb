@@ -1,16 +1,25 @@
 class MenuFormatter
 
   def formatted_menu(menu)
-    "#{avaliable_dishes(menu)}.........."
+    avaliable_dishes(menu)
+    prices_list(menu)
   end
 
-  # private
+  private
 
   def avaliable_dishes(menu)
-    menu.avaliable_dishes.map { |dish|
+    menu.avaliable_dishes.map do |dish|
       dish.map do |type, name|
-        "#{type.to_s.capitalize}: #{name}"
-      end
-     }
+        name
+      end.join(", ")
+    end
+  end
+
+  def prices_list(menu)
+    menu.dish_prices.map do |price|
+      price.map do |name, price|
+        price
+      end.join(", ")
+    end
   end
 end

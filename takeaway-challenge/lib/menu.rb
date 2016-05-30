@@ -15,7 +15,7 @@ class Menu
   end
 
   def formatted_menu
-    menuFormatter.formatted_menu
+    menuFormatter.formatted_menu(self)
   end
 
   private
