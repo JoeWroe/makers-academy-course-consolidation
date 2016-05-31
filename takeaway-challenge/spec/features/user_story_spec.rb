@@ -18,11 +18,13 @@ describe 'User Stories' do
                             {'Dessert': 5}
                           ] }
 
+  let(:menu_formatted) { "Starter..........3\nMain..........9\nDessert..........5" }
+
   describe 'User Story One' do
     it 'As a customer,
     So that I can check if I want to order something,
     I would like to see a list of dishes with prices.' do
-      expect(customer.avaliable_dishes).to eq('Starter..........3')
+      expect(customer.avaliable_dishes).to eq(menu_formatted)
     end
   end
 

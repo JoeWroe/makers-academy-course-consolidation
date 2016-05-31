@@ -17,7 +17,7 @@ describe MenuFormatter do
                            {'Dessert': 5}
                           ] }
 
-  let(:menu_formatted) { "Starter..........3\nMain..........9\nDesert..........5" }
+  let(:menu_formatted) { "Starter..........3\nMain..........9\nDessert..........5" }
 
   describe 'formatted menu' do
 

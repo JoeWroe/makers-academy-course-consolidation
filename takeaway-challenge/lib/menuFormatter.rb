@@ -1,8 +1,9 @@
 class MenuFormatter
 
   def formatted_menu(menu)
-    avaliable_dishes(menu)
-    prices_list(menu)
+    dish_and_price_array(menu).map do |menu_item|
+      "#{menu_item[0]}..........#{menu_item[1]}"
+    end.join("\n")
   end
 
   private
@@ -21,5 +22,9 @@ class MenuFormatter
         price
       end.join(", ")
     end
+  end
+
+  def dish_and_price_array(menu)
+    avaliable_dishes(menu).zip(prices_list(menu))
   end
 end
