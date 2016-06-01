@@ -1,13 +1,31 @@
-c:Customer
-t:Takeaway
-m:Menu
-mf:MenuFormatter
+Customer:class
+Takeaway:class
+Menu:Class
+Dishes:Class
+Prices:Class
+/dishes:Array
+/prices:Array
+MenuFormatter:Class
+/avaliable_dishes:Array
+/price_list:Array
+/dish_and_price_array:Array
 
-c:formatted_menu=t.avaliable_dishes()
-t:formatted_menu=m.formatted_dishes_list()
-m:formatted_menu=mf.format_menu()
+Customer:formatted_menu=Takeaway.avaliable_dishes()
+Takeaway:formatted_menu=Menu.formatted_menu()
+Menu:dishes_list=Dishes.avaliable_dishes()
+Dishes:dishes.new()
+Menu:prices_list=Prices.dish_prices()
+Prices:prices.new()
+Menu:formatted_menu=MenuFormatter.formatted_menu()
+MenuFormatter:avaliable_dishes=Menu.avaliable_dishes()
+MenuFormatter:avaliable_dishes.new()
+MenuFormatter:dish_prices=Menu.prices_list()
+MenuFormatter:price_list.new()
+MenuFormatter:dish_and_price_array.new()
+dish_and_price_array:avaliable_dishes=avaliable_dishes.avaliable_dishes()
+dish_and_price_array:price_list=price_list.price_list()
+MenuFormatter:formatted_menu=dish_and_price_array.formatted_menu()
 
-mf:dishes_list=m.dishes()
-mf:prices_list=m.prices()
 
-mf:formated_menu=mf.arrange_menu_items()
+
+
