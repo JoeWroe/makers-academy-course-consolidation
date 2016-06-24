@@ -1,16 +1,42 @@
+(function() {
+  'use strict';
+}());
+
 describe('Thermostat', function() {
 
   var thermostat;
 
   beforeEach(function() {
     thermostat = new Thermostat();
-    thermostat.initializeThermostat();
   });
 
   describe('when initialized', function() {
 
     it('sets the temperature to 20 degrees', function() {
-      expect(currentTemperature).toEqual(20);
+      expect(thermostat.currentTemperature).toEqual(20);
+    });
+
+    it('has power saving enabled', function() {
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+  });
+
+  describe('power saving mode', function() {
+
+    it('can be toggled between true and false', function() {
+      thermostat.togglePowerSaving();
+      expect(thermostat.powerSaving).toEqual(false);
+      thermostat.togglePowerSaving();
+      expect(thermostat.powerSaving).toEqual(true);
+    });
+
+    it('has a maximum temperature of 25 degrees when power saving is on', function() {
+      expect(thermostat.MAXIMUM_TEMPERATURE).toEqual(25);
+    });
+
+    it('has a maximum temperature of 32 degrees when power saving is off', function() {
+      thermostat.togglePowerSaving();
+      expect(thermostat.MAXIMUM_TEMPERATURE).toEqual(32);
     });
   });
 
@@ -18,12 +44,56 @@ describe('Thermostat', function() {
 
     it('can be increased', function() {
       thermostat.increaseTemperature(1);
-      expect(currentTemperature).toEqual(21);
+      expect(thermostat.currentTemperature).toEqual(21);
     });
 
     it('can be decreased', function() {
       thermostat.decreaseTemperature(1);
-      expect(currentTemperature).toEqual(19);
+      expect(thermostat.currentTemperature).toEqual(19);
     });
+
+    describe('minimum temperature', function() {
+
+      beforeEach(function() {
+        // input as a loop for learning, decreaseTemperature(10) would be more elegant
+        for(var i = 0; i < 10; i++) {
+          thermostat.decreaseTemperature(1);
+        }
+      });
+
+      it('error is raised if thermostat tries to go below 10 degrees', function() {
+        expect(function() { thermostat.decreaseTemperature(1); }).toThrow("Minimum temperature reached.");
+      });
+    });
+
+    describe('maximum temperature when powerSaving is on', function() {
+
+      beforeEach(function() {
+        // input as a loop for learning, increaseTemperature(5) would be more elegant
+        for(var i = 0; i < 5; i++) {
+          thermostat.increaseTemperature(1);
+        }
+      });
+
+      it('error is raised if thermostat tries to go above 25 degrees', function() {
+        expect(function() { thermostat.increaseTemperature(1); }).toThrow("Maximum temperature reached.");
+      });
+    });
+
+    describe('maximum temperature when powerSaving is off', function() {
+
+      beforeEach(function() {
+        thermostat.togglePowerSaving();
+        // input as a loop for learning, increaseTemperature(5) would be more elegant
+        for(var i = 0; i < 12; i++) {
+          thermostat.increaseTemperature(1);
+        }
+      });
+
+      it('error is raised if thermostat tries to go above 32 degrees', function() {
+        expect(function() { thermostat.increaseTemperature(1); }).toThrow("Maximum temperature reached.");
+      });
+    });
+
   });
 });
