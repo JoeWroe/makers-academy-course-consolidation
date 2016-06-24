@@ -52,6 +52,12 @@ describe('Thermostat', function() {
       expect(thermostat.currentTemperature).toEqual(19);
     });
 
+    it('can be reset', function() {
+      thermostat._updateCurrentTemperature(25);
+      thermostat.resetTemperature();
+      expect(thermostat.currentTemperature).toEqual(20);
+    });
+
     describe('minimum temperature', function() {
 
       beforeEach(function() {

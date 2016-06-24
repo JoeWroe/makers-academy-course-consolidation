@@ -21,6 +21,10 @@ Thermostat.prototype.togglePowerSaving = function() {
   this._maximumTemperatureAdjuster();
 };
 
+Thermostat.prototype.resetTemperature = function() {
+  this._updateCurrentTemperature(this.INITIAL_TEMPERATURE);
+};
+
 // private methods
 
 Thermostat.prototype._updateCurrentTemperature = function(tempValue) {
