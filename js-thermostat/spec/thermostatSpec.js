@@ -100,6 +100,47 @@ describe('Thermostat', function() {
         expect(function() { thermostat.increaseTemperature(1); }).toThrow("Maximum temperature reached.");
       });
     });
+  });
 
+  describe('display colour', function() {
+
+    describe('when power usage is high', function() {
+
+      beforeEach(function() {
+        thermostat.togglePowerSaving();
+        for(var i = 0; i < 6; i++) {
+          thermostat.increaseTemperature(1);
+        }
+      });
+
+      it('is red', function() {
+        expect(thermostat.displayColour).toBe('red');
+      });
+    });
+
+    describe('when power usage is medium', function() {
+
+      beforeEach(function() {
+        thermostat._updateCurrentTemperature(17);
+        thermostat.increaseTemperature(1);
+      });
+
+      it('is yellow', function() {
+        expect(thermostat.displayColour).toBe('yellow');
+      });
+    });
+
+    describe('when power usage is low', function() {
+
+      beforeEach(function() {
+        for(var i = 0; i < 3; i++) {
+          thermostat.decreaseTemperature(1);
+        }
+      });
+
+      it('is green', function() {
+        expect(thermostat.displayColour).toBe('green');
+      });
+    });
   });
 });

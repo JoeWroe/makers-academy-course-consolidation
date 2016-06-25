@@ -1,19 +1,24 @@
 var Thermostat = function() {
-  this.INITIAL_TEMPERATURE = 20;
-  this.MINIMUM_TEMPERATURE = 10;
-  this.MAXIMUM_TEMPERATURE = 25;
-  this.currentTemperature  = 20;
-  this.powerSaving         = true;
+  this.INITIAL_TEMPERATURE  = 20;
+  this.MINIMUM_TEMPERATURE  = 10;
+  this.MAXIMUM_TEMPERATURE  = 25;
+  this.currentTemperature   = 20;
+  this.powerSaving          = true;
+  this.highPowerTemperature = 25;
+  this.lowPowerTemperature  = 17;
+  this.displayColour        = 'yellow';
 };
 
 Thermostat.prototype.increaseTemperature = function(increaseValue) {
   this._powerSavingErrorHandler();
   this.currentTemperature += increaseValue;
+  this._displayColourSetter();
 };
 
 Thermostat.prototype.decreaseTemperature = function(decreaseValue) {
   this._minimumTemperatureError();
   this.currentTemperature -= decreaseValue;
+  this._displayColourSetter();
 };
 
 Thermostat.prototype.togglePowerSaving = function() {
@@ -23,12 +28,14 @@ Thermostat.prototype.togglePowerSaving = function() {
 
 Thermostat.prototype.resetTemperature = function() {
   this._updateCurrentTemperature(this.INITIAL_TEMPERATURE);
+  this._displayColourSetter();
 };
 
 // private methods
 
 Thermostat.prototype._updateCurrentTemperature = function(tempValue) {
   this.currentTemperature = tempValue;
+  this._displayColourSetter();
 };
 
 // In my opinion, maximum temperature is a constant dependant on state.
@@ -40,6 +47,16 @@ Thermostat.prototype._maximumTemperatureAdjuster = function() {
   }
   if(this.powerSaving === false) {
     this.MAXIMUM_TEMPERATURE = 32;
+  }
+};
+
+Thermostat.prototype._displayColourSetter = function() {
+  if(this.currentTemperature >= this.highPowerTemperature) {
+    this.displayColour = 'red';
+  } else if(this.currentTemperature <= this.lowPowerTemperature) {
+    this.displayColour = 'green';
+  } else {
+    this.displayColour = 'yellow';
   }
 };
 
