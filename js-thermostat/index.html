@@ -2,8 +2,11 @@
 <html>
   <head>
     <title>Thermostat</title>
-
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+    <script src="jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="src/thermostat.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
   </head>
 
   <body>
@@ -13,9 +16,13 @@
         <button id="increase-temperature">up</button>
         <button id="decrease-temperature">down</button>
         <button id="reset-temperature">reset</button>
-        Power saving mode is <span id="power-saving">on</span>
         <button id="toggle-power-saving">power saving</button>
       </p>
+      <div id="power-saving-status">
+        <p>
+          Power saving mode is <span id="power-saving">on</span>
+        </p>
+      </div>
     </body>
   </section>
 </html>
