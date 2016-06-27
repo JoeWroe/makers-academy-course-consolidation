@@ -2,6 +2,26 @@ section {
   font-family: 'Permanent Marker', cursive;
 }
 
+#increase-temperature {
+  position: fixed;
+  left: 0;
+}
+
+#decrease-temperature {
+  position: fixed;
+  left: 0;
+}
+
+#reset-temperature {
+  position: fixed;
+  right: 0;
+}
+
+#toggle-power-saving {
+  position: fixed;
+  right: 0:
+}
+
 #current-temperature {
   position: fixed;
   top: 0;
